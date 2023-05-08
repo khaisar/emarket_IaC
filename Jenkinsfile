@@ -59,7 +59,7 @@ pipeline {
                 }
             }
         }
-        stage('terraform'){
+        stage('terraform apply'){
            when {
                 branch 'main'
             }
@@ -72,7 +72,7 @@ pipeline {
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                         ]]) {
                               sh 'echo test'
-                              sh 'terraform -auto-approve'
+                              sh 'terraform apply -auto-approve'
                     }
                 }
             }
